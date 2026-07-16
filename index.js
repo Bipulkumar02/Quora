@@ -64,6 +64,10 @@ app.delete("/posts/delete/:id",(req,res)=>{
     res.redirect("/posts");
 })
 
-app.listen(port,()=>{
-    console.log("Listening on port 8080");
-})
+if (process.env.NODE_ENV !== "production") {
+    app.listen(8080, () => {
+        console.log("Server is listening");
+    });
+}
+
+module.exports = app;
