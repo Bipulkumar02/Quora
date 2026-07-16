@@ -13,17 +13,17 @@ let posts = [
     {
         id:uuidv4(),
         name:"vipul",
-        content:"College jao"
+        content:"I code in java script"
     },
     {
         id:uuidv4(),
         name:"ujjwal",
-        content:"Gym jao"
+        content:"I code in java"
     },
     {
         id:uuidv4(),
         name:"Gautam",
-        content:"Library jao "
+        content:"I don't code"
     },
 ]
 app.get("/", (req, res) => {
