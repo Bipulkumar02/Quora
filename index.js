@@ -25,6 +25,12 @@ let posts = [
         name:"Gautam",
         content:"I don't code"
     },
+    {
+        id:uuidv4(),
+        name:"Rvn",
+        content:"Great job!"
+    },
+    
 ]
 app.get("/", (req, res) => {
     res.redirect("/posts");
