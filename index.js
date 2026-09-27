@@ -203,7 +203,7 @@ app.patch("/posts/edit/:id",(req,res)=>{
         if(err) {return res.send(err)}
         let post = result[0];
         let userid = post.user_id;
-        if(req.session.userId==userid){
+        if(String(req.session.userId) === String(userid)){
         let  q2 = `UPDATE posts SET content = "${newcontent}" WHERE id ="${id}"`;
         connection.query(q2,(err,result)=>{
             if(err) { return res.send(err)}
@@ -221,7 +221,7 @@ app.delete("/posts/delete/:id",(req,res)=>{
     connection.query(q,(err,result)=>{
         if(err) {return res.send(err)};
         let post = result[0];
-        if(req.session.userId==post.user_id){
+        if(String(req.session.userId) === String(post.user_id)){
             let q2 = `DELETE FROM posts WHERE id="${id}"`;
             connection.query(q2,(err,result)=>{
                 if(err){return res.send(err)}
