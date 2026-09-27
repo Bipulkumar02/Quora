@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql2");
 const session = require("express-session");
+const MySQLStore = require("express-mysql-session")(session);
 const app = express();
 const port = 8080;
 const path = require("path");
@@ -12,11 +13,7 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
+
 const connection = mysql.createPool({
     host: process.env.TIDB_HOST,
     port: process.env.TIDB_PORT,
@@ -29,6 +26,13 @@ const connection = mysql.createPool({
 });
 
 const db = connection.promise();
+const sessionStore = new MySQLStore({}, connection);
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: sessionStore
+}));
 //logout
 app.get("/logout", function(req, res) {
 
