@@ -3,24 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Posts</title>
+    <title>Quora Posts</title>
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-    <h1>Quora posts</h1>
-    <% for (post of posts){ %>
-        <div class="post">
-            <h3 class="user">@<%=post.name %></h3>
-            <h4 class="content"><%=post.content %></h4>
-            <a href="/posts/<%= post.id %>">see in details</a>
-            <a href="/posts/edit/<%= post.id %>">edit</a>
-            <form action="/posts/delete/<%= post.id %>?_method=DELETE" method="post">
-                <button>Delete</button>
-            </form>
+
+    <header>
+        <h1>Quora</h1>
+        <a href="/posts/new" class="create-btn">Create Post</a>
+        <div class="account">
+        <img src="/account.jpg" alt="account" height="50px" width="50px" class="account-icon">
+        <div class="account-menu">
+            <a href="/change-password">Change password</a>
+              <a href="/logout">Log out</a>
         </div>
+    </div>
+    </header>
+
+    <main>
+
+        <h2 class="feed-title">All Posts</h2>
+
+        <% for (let post of posts){ %>
+
+            <div class="post">
+
+                <div class="user">
+                    @<%= post.username %>
+                </div>
+
+                <div class="content">
+                    <%= post.content %>
+                </div>
+
+                <div class="actions">
+
+                    <a href="/posts/edit/<%= post.id %>" class="edit-btn">
+                        Edit
+                    </a>
+
+                    <form action="/posts/delete/<%= post.id %>?_method=DELETE" method="post">
+                        <button type="submit" class="delete-btn">
+                            Delete
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+
         <% } %>
-        <br>
-        <br>
-        <a href="/posts/new">create new post</a>
+
+    </main>
+    <script src="/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+.edit-box {
+    width: 450px;
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 20px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+.edit-box h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.edit-box p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.edit-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-box textarea {
+    width: 100%;
+    height: 150px;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+
+    resize: vertical;
+    outline: none;
+}
+
+.edit-box textarea:focus {
+    border-color: #b92b27;
+    box-shadow: 0 0 0 3px rgba(185, 43, 39, 0.15);
+}
+
+.edit-box button {
+    width: 100%;
+    padding: 13px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #b92b27;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.edit-box button:hover {
+    background: #92211e;
+}

@@ -1,9 +1,187 @@
-.user{
-    font-style: italic;
+* {
+    box-sizing: border-box;
 }
-h1{
-    color: maroon;
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background-image: url("/background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: #222;
 }
-.post{
-background-color:blanchedalmond;
+
+/* Top navigation */
+
+header {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+/* .account{
+    position: relative;
+    margin: auto;
+} */
+.account-icon{
+    cursor: pointer;
+}
+.account-menu{
+    display:none;
+    position:absolute;
+    right: 0;
+    top: 45px;
+    width: 180px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0, 0.2);
+}
+.account-menu a{
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+}
+.account-menu a:hover{
+    background-color: #f2f2f2;
+}
+header h1 {
+    margin: 0;
+
+    font-size: 30px;
+    color: #b92b27;
+}
+
+/* Create post button */
+
+.create-btn {
+    padding: 10px 18px;
+
+    background: #b92b27;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.create-btn:hover {
+    background: #92211e;
+}
+
+/* Main feed */
+
+main {
+    width: 600px;
+    max-width: 90%;
+
+    margin: 40px auto;
+}
+
+.feed-title {
+    margin-bottom: 20px;
+
+    color: white;
+
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Post card */
+
+.post {
+    background: rgba(255, 255, 255, 0.95);
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Username */
+
+.user {
+    font-size: 17px;
+    font-weight: bold;
+
+    color: #555;
+
+    margin-bottom: 15px;
+}
+
+/* Post content */
+
+.content {
+    font-size: 18px;
+    line-height: 1.5;
+
+    margin: 0 0 20px 0;
+
+    white-space: pre-wrap;
+}
+
+/* Buttons */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-btn {
+    padding: 8px 16px;
+
+    background: #eee;
+
+    color: #333;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+}
+
+.edit-btn:hover {
+    background: #ddd;
+}
+
+.delete-btn {
+    padding: 8px 16px;
+
+    background: #b92b27;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #92211e;
+}
+
+.actions form {
+    margin: 0;
 }
